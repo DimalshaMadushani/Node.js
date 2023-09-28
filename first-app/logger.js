@@ -1,19 +1,14 @@
 
 const EventEmitter = require('events'); //EventEmitter is a class //blueprint of an object
-
+const emitter = new EventEmitter(); //emitter is an object, instance of EventEmitter class
 
 let url = 'http://mylogger.io/log';
 
-//logger class has the ability to raise an event by extending EventEmitter class
-class Logger extends EventEmitter {
-    log(message) {
-        //send an http request
-        console.log(message);
-        //Raise an event
-        this.emit('messageLogged', {id: 1, url: 'http://'}); //making a noise, produce - signalling that an event has happened
-    }
+function log(message) {
+    //send an http request
+    console.log(message);
+    emitter.emit('logging', {data: 'message'});
+
 }
 
-
-
-module.exports= Logger; //exporting the log function
+module.exports= log; //exporting the log function
