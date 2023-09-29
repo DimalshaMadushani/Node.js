@@ -12,8 +12,11 @@ app.get("/api/courses", (req, res) => {
     res.send([1, 2, 3]);
  });
 
- //environment variable
+app.get("/api/posts/:year/:month", (req, res) => {
+    res.send(req.params);
+});
 
+ //environment variable
 const port = process.env.PORT || 3000;
 //listen on a dynamic port assigned by the hosting environment or 3000 if it's not defined
 app.listen(port, () => console.log(`Listening on port ${port}...`));
