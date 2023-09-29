@@ -12,3 +12,4 @@ function log(message) {
 }
 
 module.exports= log; //exporting the log function
+console.log(module); //module is an object that has a property called exports
